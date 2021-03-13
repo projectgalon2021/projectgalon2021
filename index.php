@@ -19,10 +19,11 @@ $request_body = file_get_contents('php://input');
 header('Content-Type: application/json');
 
 $charge_result = chargeAPI($api_url,$server_key,$request_body);
+echo $charge_result;
 
-http_response_code($charge_result['http_code']);
+// http_response_code($charge_result['http_code']);
 
-echo $charge_result['body'];
+// echo $charge_result['body'];
 
 function chargeAPI($api_url,$server_key,$request_body){
     $ch = curl_init();
@@ -39,12 +40,12 @@ function chargeAPI($api_url,$server_key,$request_body){
         CURLOPT_POSTFIELDS => $request_body
     );
     return $curl_options;
-    curl_setopt_array($ch,$curl_options);
-    $result = array(
-        'body' => curl_exec($ch),
-        'http_code' => curl_getinfo($ch,CURLINFO_HTTP_CODE),
-    );
-    return $result;
+//     curl_setopt_array($ch,$curl_options);
+//     $result = array(
+//         'body' => curl_exec($ch),
+//         'http_code' => curl_getinfo($ch,CURLINFO_HTTP_CODE),
+//     );
+//     return $result;
 }
 
 ?>
