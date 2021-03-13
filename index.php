@@ -38,7 +38,7 @@ function chargeAPI($api_url,$server_key,$request_body){
         ),
         CURLOPT_POSTFIELDS => $request_body
     );
-    return $curl_options['CURLOPT_HTTPHEADER']['Authorization'];
+    return $curl_options;
     curl_setopt_array($ch,$curl_options);
     $result = array(
         'body' => curl_exec($ch),
