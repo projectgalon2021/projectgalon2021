@@ -19,7 +19,7 @@ $request_body = file_get_contents('php://input');
 header('Content-Type: application/json');
 
 $charge_result = chargeAPI($api_url,$server_key,$request_body);
-echo $charge_result;
+echo json_encode($charge_result);
 
 // http_response_code($charge_result['http_code']);
 
